@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Notepad</title>
+  <style>
+    body {
+      width: 300px;
+      padding: 15px;
+      font-family: Arial, sans-serif;
+    }
+    textarea {
+      width: 100%;
+      height: 100px;
+      margin-bottom: 10px;
+      resize: vertical;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .note {
+      background-color: #f9f9f9;
+      border-left: 4px solid #4CAF50;
+      margin: 10px 0;
+      padding: 10px;
+      word-wrap: break-word;
+    }
+    .delete-btn {
+      background-color: #f44336;
+      float: right;
+    }
+    .tabs {
+      display: flex;
+      margin-bottom: 10px;
+    }
+    .tab {
+      padding: 8px 16px;
+      cursor: pointer;
+      background-color: #f1f1f1;
+      margin-right: 4px;
+      border-radius: 4px 4px 0 0;
+    }
+    .tab.active {
+      background-color: #4CAF50;
+      color: white;
+    }
+    #notesContainer {
+      max-height: 300px;
+      overflow-y: auto;
+    }
+  </style>
+</head>
+<body>
+  <h2>Notepad</h2>
+  <div class="tabs">
+    <div class="tab active" data-tab="all">All Notes</div>
+    <div class="tab" data-tab="new">New Note</div>
+  </div>
+  
+  <div id="newNoteTab" class="tab-content">
+    <textarea id="noteInput" placeholder="Enter your note here..."></textarea>
+    <button id="saveNote">Save Note</button>
+  </div>
+  
+  <div id="allNotesTab" class="tab-content">
+    <h3>Your Saved Notes</h3>
+    <div id="notesContainer">
+      <!-- Notes will be dynamically added here -->
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
